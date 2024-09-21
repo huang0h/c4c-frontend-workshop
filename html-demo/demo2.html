@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            // * {
+            //     border: 1px solid red;
+            // }
+
+            body {
+                font-family: Montserrat,sans-serif;
+                padding: 20px;
+            }
+
+            header {
+                text-decoration: underline;
+                font-weight: 700;
+                font-size: 22pt;
+
+                margin-bottom: 30px;
+            }
+
+            #grid-container {
+                display: grid;
+                grid-template-columns: auto auto auto;
+                
+                width: 1100px;
+                justify-content: space-between;
+                align-content: space-between;
+            }
+
+            .grid-item {
+                width: 300px;
+                height: 300px;
+                background-color: rgb(40, 139, 228);
+                margin-bottom: 20px;
+                border-radius: 7px;
+
+                padding: 0px 20px;
+            }
+
+            .grid-item-icon {
+                width: 30px;
+                height: 30px;
+
+                margin-top: 50px;
+                // margin-left: 20px;
+            }
+
+            .grid-item-title {
+                margin-top: 30px;
+                // margin-left: 20px;
+                
+                color: white;
+                font-size: 30pt;
+                font-style: italic;
+                font-weight: 400;
+                font-family: Lora, Georgia, serif;
+            }
+
+            .grid-item-underscore {
+                border: 2px solid rgb(233, 80, 76);
+                margin: 10px 0px;
+                margin-top: -40px;
+                width: 140px;
+            }
+
+            .grid-item-hidden {
+                padding: 10px;
+                margin-top: 20px;
+                width: 240px;
+                
+                color: white;
+                font-size: 10pt;
+                
+                background-color: #408540;
+                border-radius: 5px;
+
+                opacity: 0;
+                transition: opacity 100ms;
+            }
+
+            .grid-item-hidden:hover {
+                opacity: 100;
+
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            FEATURED RESOURCES →
+        </header>
+        <div id="grid-container">
+        </div>
+    </body>
+    <script>
+        function createCard(title, description) {
+            // Creates <div class="grid-item"></div>
+            // In technical terms, this is the "parent" element for all things card
+            const gridItem = document.createElement("div");
+            gridItem.className = "grid-item";
+
+            // We'll then create the elements contained in the card
+            // This elements are called "child" elements with respect to the "parent" element
+
+            // Creates a <img src=... class="grid-item-icon" />
+            const icon = document.createElement("img");
+            icon.src = "icons/circle-square.png";
+            icon.className = "grid-item-icon";
+
+            // Creates a <h4 class="grid-item-title"></h4>
+            // and inserts the title as text content
+            const gridTitle = document.createElement("h4");
+            gridTitle.className = "grid-item-title";
+            gridTitle.textContent = title;
+
+            // Creates a <hr class="grid-item-underscore" />
+            const divider = document.createElement("hr");
+            divider.className = "grid-item-underscore";
+
+            // Creates a <div class="grid-item-hidden"></div>
+            // and inserts the description as text content
+            const hiddenDescription = document.createElement("div");
+            hiddenDescription.className = "grid-item-hidden";
+            hiddenDescription.textContent = description;
+
+            // Finally, attach the sub elements to the card
+            gridItem.appendChild(icon);
+            gridItem.appendChild(gridTitle);
+            gridItem.appendChild(divider);
+            gridItem.appendChild(hiddenDescription);
+
+            return gridItem;
+        }
+
+        const cardData = [
+            ["Rain Garden", "This is some sample text about Rain Gardens."],
+            ["Bioswale", "This is some sample text about Bioswales."],
+            ["Bioretention", "This is some sample text about Bioretention stuff."],
+            ["Porous Paving", "This is some sample text about Porous Paving."],
+            ["Tree Trench/Planter", "This is some sample text about Tree Trenches/Planters."],
+            ["Green Roof/Planter", "This is some sample text about Green Rooves/Planters."]
+        ];
+
+        // Get the parent element for all of the cards...
+        const container = document.getElementById("grid-container");
+        // ...and attach cards to it dynamically with our card data
+        cardData.forEach(([title, description]) => {
+            const gridItem = createCard(title, description);
+            container.appendChild(gridItem);
+        });
+    </script>
+</html>
