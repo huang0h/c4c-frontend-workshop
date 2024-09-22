@@ -1,6 +1,8 @@
 ## READ FIRST PLZ
 
-*  All react code is currently in branches on this repo
+*  All HTML and CSS exists in the root/master of this repository
+
+*  All react code is currently in branches on this repository
 
 *  'jaren' holds some basic scaffolding, early versions without debounce timers
 
