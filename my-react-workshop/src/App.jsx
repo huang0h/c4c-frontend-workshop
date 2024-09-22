@@ -20,6 +20,7 @@ const App = () => {
       return;
     }
 
+    // Could be a backend or async call that we wait for instead of an instant id increment.. !
     setLoading(true);
     const newId = cards.length ? cards[cards.length - 1].id + 1 : 1;
 
