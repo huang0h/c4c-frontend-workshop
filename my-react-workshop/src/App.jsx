@@ -21,6 +21,7 @@ const App = () => {
     }
 
     // Could be a backend or async call that we wait for instead of an instant id increment.. !
+    // A unique ID could be made by the service, and the frontend will be sent a frontend id copy
     setLoading(true);
     const newId = cards.length ? cards[cards.length - 1].id + 1 : 1;
 
@@ -35,6 +36,8 @@ const App = () => {
   const handleDeleteCard = (id) => {
     setLoading(true);
     setTimeout(() => {
+      // Verifying a backend array could be helpful here to make sure you didn't delete the wrong one.
+      // Generating and deleting by unique ID can be configured easily to handle layers of quality check
       setCards(cards.filter(card => card.id !== id));
       setLoading(false);
     }, 1000);
