@@ -89,6 +89,8 @@
         <header>
             FEATURED RESOURCES →
         </header>
+        <button id="add-card">Add Card</button>
+        <button id="delete-card">Delete Card</button>
         <div id="grid-container">
         </div>
     </body>
@@ -132,7 +134,18 @@
             return gridItem;
         }
 
-        const cardData = [
+        function renderCards() {
+            // Get the parent element for all of the cards and clear its content...
+            const container = document.getElementById("grid-container");
+            container.innerHTML =  '';
+            // ...and attach new cards to it dynamically with our card data
+            cardData.forEach(([title, description]) => {
+                const gridItem = createCard(title, description);
+                container.appendChild(gridItem);
+            });
+        }
+
+        let cardData = [
             ["Rain Garden", "This is some sample text about Rain Gardens."],
             ["Bioswale", "This is some sample text about Bioswales."],
             ["Bioretention", "This is some sample text about Bioretention stuff."],
@@ -141,12 +154,24 @@
             ["Green Roof/Planter", "This is some sample text about Green Rooves/Planters."]
         ];
 
-        // Get the parent element for all of the cards...
-        const container = document.getElementById("grid-container");
-        // ...and attach cards to it dynamically with our card data
-        cardData.forEach(([title, description]) => {
-            const gridItem = createCard(title, description);
-            container.appendChild(gridItem);
-        });
+        function addCard() {
+            const title = prompt("Enter a title");
+            const description = prompt("Enter a description");
+
+            cardData.push([title, description]);
+            renderCards();
+        }
+
+        function deleteCard() {
+            const toDelete = prompt("Enter a title");
+            
+            cardData = cardData.filter(([title, _]) => title != toDelete);
+            renderCards();
+        }
+
+        document.getElementById("add-card").addEventListener("click", addCard);
+        document.getElementById("delete-card").addEventListener("click", deleteCard);
+
+        renderCards();
     </script>
 </html>
