@@ -11,6 +11,10 @@
                 padding: 20px;
             }
 
+            .button-header {
+                margin-bottom: 20px;
+            }
+
             header {
                 text-decoration: underline;
                 font-weight: 700;
@@ -89,12 +93,23 @@
         <header>
             FEATURED RESOURCES →
         </header>
-        <button id="add-card">Add Card</button>
-        <button id="delete-card">Delete Card</button>
+        <div class="button-header">
+            <button id="add-card">Add Card</button>
+            <button id="delete-card">Delete Card</button>
+        </div>
         <div id="grid-container">
         </div>
     </body>
     <script>
+        let cardData = [
+            ["Rain Garden", "This is some sample text about Rain Gardens."],
+            ["Bioswale", "This is some sample text about Bioswales."],
+            ["Bioretention", "This is some sample text about Bioretention stuff."],
+            ["Porous Paving", "This is some sample text about Porous Paving."],
+            ["Tree Trench/Planter", "This is some sample text about Tree Trenches/Planters."],
+            ["Green Roof/Planter", "This is some sample text about Green Rooves/Planters."]
+        ];
+        
         function createCard(title, description) {
             // Creates <div class="grid-item"></div>
             // In technical terms, this is the "parent" element for all things card
@@ -144,15 +159,6 @@
                 container.appendChild(gridItem);
             });
         }
-
-        let cardData = [
-            ["Rain Garden", "This is some sample text about Rain Gardens."],
-            ["Bioswale", "This is some sample text about Bioswales."],
-            ["Bioretention", "This is some sample text about Bioretention stuff."],
-            ["Porous Paving", "This is some sample text about Porous Paving."],
-            ["Tree Trench/Planter", "This is some sample text about Tree Trenches/Planters."],
-            ["Green Roof/Planter", "This is some sample text about Green Rooves/Planters."]
-        ];
 
         function addCard() {
             const title = prompt("Enter a title");
