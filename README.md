@@ -1,7 +1,9 @@
-### All react code is currently in branches on this repo
+## READ FIRST PLZ
 
-### 'jaren' holds some basic scaffolding, early versions without debounce timers
+*  All react code is currently in branches on this repo
 
-### 'sideeffects-jaren' holds the most developed code for the demo, showing hooks and debounce scenarios for managing state in the UI. This is the final UI to show before wrapping up the workshop
+*  'jaren' holds some basic scaffolding, early versions without debounce timers
 
-### 'simple-code-solution-jaren' holds the lightweight UI to open the React demo implementation section with light code to develop live.
+*  'sideeffects-jaren' holds the most developed code for the demo, showing hooks and debounce scenarios for managing state in the UI. This is the final UI to show before wrapping up the workshop
+
+*  'simple-code-solution-jaren' holds the lightweight UI to open the React demo implementation section with light code to develop live.
