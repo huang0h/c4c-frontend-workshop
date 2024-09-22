@@ -62,6 +62,10 @@ header {
   border-radius: 5px;
 }
 
+.grid-item-ghost {
+  background-color: #cccccc; /* Lighter color for ghost cards */
+}
+
 button {
   align-self: center; /* Centers the button horizontally within the card */
   margin-top: 10px;
