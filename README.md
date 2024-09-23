@@ -1,8 +1,6 @@
 ## READ FIRST PLZ
 
-*  All HTML and CSS exists in the root/master of this repository
-
-*  All react code is currently in branches on this repository
+*  'html-demo-avery' holds the basic plain HTML/JS code for the demo, showing how we can generate page content imperatively with native JavaScript code.
 
 *  'sideeffects-jaren' holds the most developed code for the demo, showing hooks and debounce scenarios for managing state in the UI. This is the final UI to show before wrapping up the workshop
 
